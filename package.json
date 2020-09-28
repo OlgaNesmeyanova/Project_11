@@ -1,0 +1,24 @@
+{
+  "name": "project_11",
+  "version": "1.0.0",
+  "description": "project for Yandex Praktikum",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack-dev-server --mode development --open --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OlgaNesmeyanova/Project_11.git"
+  },
+  "author": "Olga Nesmeyanova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OlgaNesmeyanova/Project_11/issues"
+  },
+  "homepage": "https://github.com/OlgaNesmeyanova/Project_11#readme",
+  "devDependencies": {
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  }
+}
