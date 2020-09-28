@@ -1,0 +1,16 @@
+.user-info__button_edit.user-info__button_edit {
+    width: 38px;
+    height: 18px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    left: 187px;
+    top:168px;
+  }
+  
