@@ -2,7 +2,7 @@
 export default class Api {
 
    getUserData = () => {
-    return fetch('https://praktikum.tk/cohort12/users/me', {
+    return fetch('https://nomoreparties.co/cohort12/users/me', {
         headers: {
             authorization: '46d818af-6583-45d0-bc0a-1d0bd5d211c1'
         }
@@ -17,7 +17,7 @@ export default class Api {
     }
 
     getInitialCards = ()=> {
-        return fetch('https://praktikum.tk/cohort12/cards', {
+        return fetch('https://nomoreparties.co/cohort12/cards', {
         headers: {
             authorization: '46d818af-6583-45d0-bc0a-1d0bd5d211c1'
         }
@@ -32,7 +32,7 @@ export default class Api {
   }
 
   editProfile = (name, job)=> {
-    return fetch('https://praktikum.tk/cohort12/users/me', {
+    return fetch('https://nomoreparties.co/cohort12/users/me', {
     method: 'PATCH',
     headers: {
       authorization: '46d818af-6583-45d0-bc0a-1d0bd5d211c1',
@@ -53,7 +53,7 @@ export default class Api {
   }
 
   addNewCard = (nameValue, linkValue) => {
-    return fetch('https://praktikum.tk/cohort12/cards', {
+    return fetch('https://nomoreparties.co/cohort12/cards', {
     method: 'POST',
     headers: {
       authorization: '46d818af-6583-45d0-bc0a-1d0bd5d211c1',

@@ -1,10 +1,12 @@
-import "../pages/index.css";
 import Api from './Api';
 import Card from './Card';
 import CardList from './CardList';
 import FormValidator from './FormValidator';
 import Popup from './Popup';
-import UserInfo from './UserInfo'
+import UserInfo from './UserInfo';
+
+import '../pages/index.css';
+
 (function () {
 const placesList = document.querySelector('.places-list');
 
