@@ -1,3 +1,10 @@
+import "../pages/index.css";
+import Api from './Api';
+import Card from './Card';
+import CardList from './CardList';
+import FormValidator from './FormValidator';
+import Popup from './Popup';
+import UserInfo from './UserInfo'
 (function () {
 const placesList = document.querySelector('.places-list');
 
@@ -118,21 +125,4 @@ closeNewPlaceButton.addEventListener('click', function () {
 closeLargePictureButton.addEventListener ('click', () => largePicture.close());
 
 })();
-/*
- Что понравилось:
- - Выполнено задание с добавлением карточки
- - Реализованы все классы
- Можно лучше:
- - Вынести функцию
- (result) => {
-   if (!result.ok) {
-      return Promise.reject(`Ошибка: ${result.status}`);
-    } else {
-      return result.json();
-   }
- }
- в отдельный приватный метод класса api
- - Удалить закомментированный код
- Полезные материалы:
- Статья про построение async/await API на английском https://dev.to/shoupn/javascript-fetch-api-and-using-asyncawait-47mp
- */
+

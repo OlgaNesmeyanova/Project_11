@@ -1,15 +1,25 @@
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
-
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackMd5Hash = require('webpack-md5-hash');
 module.exports = {
     entry: { main: './src/JS/index.js'},
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js'
+        filename: '[name].[chunkhash].js'
     },
     module: {
-        rules: [{
+        rules: [
+            { 
+            test: /\.js$/, 
+            use: { loader: "babel-loader" }, 
+            exclude: /node_modules/ 
+            },
+            {
+                test: /\.css$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader'] 
+            },
+            {
             test: /\.(gif|png|jpe?g|svg)$/i,
             use: [
             'file-loader',
@@ -21,11 +31,17 @@ module.exports = {
                 },
             },
             ],
-        }]
+        }    
+        ],
+        plugins: [ 
+        new MiniCssExtractPlugin({filename: 'style.[contenthash].css'}),
+        new HtmlWebpackPlugin({
+            inject: false,
+            template: './src/index.html',
+            filename: 'index.html'
+        })
+        ]  
     },
-    plugins: [
-        new CleanWebpackPlugin(),
-    ]
 };
 const webpack = require('webpack');
 

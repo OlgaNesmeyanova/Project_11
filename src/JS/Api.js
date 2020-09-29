@@ -1,5 +1,5 @@
 
-class Api {
+export default class Api {
 
    getUserData = () => {
     return fetch('https://praktikum.tk/cohort12/users/me', {
