@@ -1,3 +1,4 @@
+/*
 const presets = [
     [
       "@babel/env",
@@ -19,3 +20,4 @@ const presets = [
     "@babel/plugin-proposal-class-properties"
   ];
   module.exports = { presets, plugins }; 
+  */

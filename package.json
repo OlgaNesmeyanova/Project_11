@@ -4,8 +4,9 @@
   "description": "project for Yandex Praktikum",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production",
-    "dev": "webpack --mode development --open --watch"
+    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "dev": " cross-env NODE_ENV=development webpack --mode development --open --watch",
+    "start": "cross-env NODE_ENV=development webpack-dev-sever --mode development --open"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
     "url": "https://github.com/OlgaNesmeyanova/Project_11/issues"
   },
   "homepage": "https://github.com/OlgaNesmeyanova/Project_11#readme",
+  "browserslist": "> 0.25%, not dead",
   "devDependencies": {
     "@babel/cli": "^7.11.6",
     "@babel/core": "^7.11.6",
@@ -24,6 +26,7 @@
     "@babel/preset-env": "^7.11.5",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^7.0.2",
     "css-loader": "^4.3.0",
     "file-loader": "^6.1.0",
     "html-webpack-plugin": "^4.5.0",
@@ -31,9 +34,11 @@
     "style-loader": "^1.2.1",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
     "webpack-md5-hash": "0.0.6"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.11.5",
     "babel-polyfill": "^6.26.0",
     "core-js": "^3.4.1"
   }

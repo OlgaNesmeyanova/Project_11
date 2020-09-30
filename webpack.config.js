@@ -1,16 +1,18 @@
 const path = require('path');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
-const webpack = require('webpack');
+const webpack = require('webpack'); //?
 
 
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
-    entry: { main: './JS/index.js'},
+    entry: { main: 
+        ['@babel/polyfill', './JS/index.js']
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[chunkhash].js'
@@ -18,14 +20,25 @@ module.exports = {
     module: {
         rules: [
             { 
-            test: /\.js$/, 
-            use: { loader: "babel-loader" }, 
-            exclude: /node_modules/ 
+            test: /\.js$/,
+            exclude: /node_modules/, 
+            loader: {
+                loader: 'babel-loader',
+                options: {
+                    presets: [
+                        '@babel/preset-env'
+                    ],
+                    plugins: [
+                        '@babel/plugin-proposal-class-properties'
+                    ]
+                }
+             }, 
+             
             },
             {
                 test: /\.css$/,
-                /*use: [MiniCssExtractPlugin.loader, 'css-loader'] */
-                use: ['style-loader', 'css-loader']
+                use: [MiniCssExtractPlugin.loader, 'css-loader']
+                /*use: ['style-loader', 'css-loader'] */
             },
             {
             test: /\.(gif|png|jpe?g|svg)$/i,
@@ -46,6 +59,9 @@ module.exports = {
             }  
         ],
     },
+    devServer: {
+        port: 4200
+    },
     plugins: [ 
         new MiniCssExtractPlugin({
             filename: 'style.[contenthash].css'
@@ -57,8 +73,8 @@ module.exports = {
         }),
         new WebpackMd5Hash(),
         new CleanWebpackPlugin(),
-        new webpack.DefinePlugin({
-            'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+        new webpack.DefinePlugin({ //?
+            'NODE_ENV': JSON.stringify(process.env.NODE_ENV) //?
         })
     ]  
     
