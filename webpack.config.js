@@ -26,7 +26,19 @@ module.exports = {
                 loader: 'babel-loader',
                 options: {
                     presets: [
-                        '@babel/preset-env'
+                        ['@babel/preset-env',
+                        {
+                            targets: { 
+                                  edge: "17",
+                                  ie: "11",
+                                  firefox: "50",
+                                  chrome: "64",
+                                  safari: "11.1",
+                            },
+                            useBuiltIns: "usage", 
+                            corejs: "3.6.5" 
+                          }
+                        ]
                     ],
                     plugins: [
                         '@babel/plugin-proposal-class-properties'
@@ -37,7 +49,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader']
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
                 /*use: ['style-loader', 'css-loader'] */
             },
             {
