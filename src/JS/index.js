@@ -28,8 +28,9 @@ const closeLargePictureButton = largePictureElement.querySelector('.popup__close
 
 const profileValidator = new FormValidator (profileForm);
 const newPlaceValidator = new FormValidator (newPlaceForm);
+const url = NODE_ENV === 'development' ? 'http://nomoreparties.co/cohort12' : 'https://nomoreparties.co/cohort12';
 
-const api = new Api();
+const api = new Api(url);
 
 const userName = document.querySelector('.user-info__name');
 const job = document.querySelector('.user-info__job');

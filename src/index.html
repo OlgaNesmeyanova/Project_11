@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mesto</title>
-  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css%>"
+  <!-- <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css%>" -->
 </head>
 <body>
   <div class="root">
@@ -29,7 +29,7 @@
     </div>
     <div class="popup popup_profile">
       <div class="popup__content">
-        <img src="<%=require('./images/close.svg')%" alt="" class="popup__close">
+        <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close">
         <h3 class="popup__title">Редактировать профиль</h3>
         <form class="popup__form" name="edit" novalidate>
             <input type="text" name="name" class="popup__input popup__input_type_name" placeholder="Имя" required minlength="2" maxlength="30">
@@ -42,7 +42,7 @@
     </div>
     <div class="popup popup_new-place">
       <div class="popup__content">
-        <img src="<%=require('./images/close.svg')%" alt="" class="popup__close">
+        <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close">
         <h3 class="popup__title">Новое место</h3>
         <form class="popup__form" name="new" novalidate>
             <input type="text" name="name" class="popup__input popup__input_type_name" placeholder="Название" required minlength="2" maxlength="30">
@@ -56,7 +56,7 @@
 
     <div class="popup popup_large-picture">
       <div class="popup__content popup__content_large-picture ">
-        <img src="<%=require('./images/close.svg')%" alt="" class="popup__close">
+        <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close">
         <img class="popup__image" src="" alt="изображение">
       </div>
     </div>
@@ -71,9 +71,9 @@
   <script src="JS/UserInfo.js"></script>
   <script src="JS/FormValidator.js"></script>
   <script src="JS/Api.js"></script>
-  <script src="JS/main.js"></script>
+  <script src="JS/index.js"></script>
   -->
 
-  <script type="module" src="./JS/index.js"></script> 
+  <!-- <script src="%= htmlWebpackPlugin.files.js %"></script> -->
 </body>
 </html>

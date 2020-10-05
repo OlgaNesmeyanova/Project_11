@@ -4,9 +4,9 @@
   "description": "project for Yandex Praktikum",
   "main": "index.js",
   "scripts": {
-    "build": "cross-env  NODE_ENV=production webpack --mode production",
-    "dev": " cross-env NODE_ENV=development webpack --mode development --open --watch",
-    "start": "cross-env NODE_ENV=development webpack-dev-sever --mode development --open"
+    "build": "rimraf dist && cross-env NODE_ENV=production webpack --mode production",
+    "dev": " cross-env NODE_ENV=development webpack-dev-server --mode development --open --watch"
+    
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "@babel/cli": "^7.11.6",
     "@babel/core": "^7.11.6",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-transform-arrow-functions": "^7.10.4",
     "@babel/preset-env": "^7.11.5",
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.1.0",

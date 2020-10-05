@@ -1,8 +1,11 @@
 
 export default class Api {
+  constructor (baseUrl) {
+    this.baseUrl = baseUrl;
+  }
 
-   getUserData = () => {
-    return fetch('https://nomoreparties.co/cohort12/users/me', {
+   getUserData () {
+    return fetch(`${this.baseUrl}/users/me`, {
         headers: {
             authorization: '46d818af-6583-45d0-bc0a-1d0bd5d211c1'
         }
@@ -16,8 +19,8 @@ export default class Api {
       })
     }
 
-    getInitialCards = ()=> {
-        return fetch('https://nomoreparties.co/cohort12/cards', {
+    getInitialCards () {
+        return fetch(`${this.baseUrl}/cards`, {
         headers: {
             authorization: '46d818af-6583-45d0-bc0a-1d0bd5d211c1'
         }
@@ -31,8 +34,8 @@ export default class Api {
       })
   }
 
-  editProfile = (name, job)=> {
-    return fetch('https://nomoreparties.co/cohort12/users/me', {
+  editProfile (name, job) {
+    return fetch(`${this.baseUrl}/users/me`, {
     method: 'PATCH',
     headers: {
       authorization: '46d818af-6583-45d0-bc0a-1d0bd5d211c1',
@@ -52,8 +55,8 @@ export default class Api {
   })
   }
 
-  addNewCard = (nameValue, linkValue) => {
-    return fetch('https://nomoreparties.co/cohort12/cards', {
+  addNewCard (nameValue, linkValue) {
+    return fetch(`${this.baseUrl}/cards`, {
     method: 'POST',
     headers: {
       authorization: '46d818af-6583-45d0-bc0a-1d0bd5d211c1',

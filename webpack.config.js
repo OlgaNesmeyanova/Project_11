@@ -40,7 +40,8 @@ module.exports = {
                         ]
                     ],
                     plugins: [
-                        '@babel/plugin-proposal-class-properties'
+                        '@babel/plugin-proposal-class-properties',
+                        '@babel/plugin-transform-arrow-functions'
                     ]
                 }
              }, 
@@ -57,7 +58,8 @@ module.exports = {
             {
             test: /\.(gif|png|jpe?g|svg)$/,
             use: [
-                'file-loader?name=./images/[name].[ext]',
+                //'file-loader?name=./images/[name].[ext]',
+                'file-loader?name=./images/[name].[ext]&esModule=false',
                 {
                     loader: 'image-webpack-loader',
                     options: {},
@@ -74,6 +76,13 @@ module.exports = {
         port: 4200
     },
     plugins: [ 
+        
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: './index.html',
+            filename: 'index.html'
+        }),
         new MiniCssExtractPlugin({
             filename: 'style.[contenthash].css'
         }),
@@ -85,13 +94,8 @@ module.exports = {
             },
             canPrint: true
     }),
-        new HtmlWebpackPlugin({
-            inject: false,
-            template: './index.html',
-            filename: 'index.html'
-        }),
         new WebpackMd5Hash(),
-        new CleanWebpackPlugin(),
+        
         new webpack.DefinePlugin({
             'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
         })
