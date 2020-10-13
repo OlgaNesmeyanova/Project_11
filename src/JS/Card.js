@@ -1,8 +1,12 @@
-class Card {
+export default class Card {
     constructor (name, link, popup) {
         this.name = name;
         this.link = link;
         this.popup = popup;
+        this._remove = this._remove.bind(this);
+        this._like = this._like.bind(this);
+        this._openLargePicture = this._openLargePicture.bind(this);
+    
     }
     create () {
         const template = document.createElement('div');
@@ -40,17 +44,17 @@ class Card {
         this.deleteButtonElement.removeEventListener('click', this._remove);
         this.imageElement.removeEventListener('click', this._openLargePicture);
     }
-    _like = (event) => {
+    _like (event) {
         event.target.classList.toggle('place-card__like-icon_liked');
     }
 
-    _remove = (event) => {
+    _remove (event) {
         const element = event.target.parentElement.parentElement;
         element.parentNode.removeChild(element);
         this._removeEventListeners();
     }
 
-    _openLargePicture = (event) => {
+    _openLargePicture (event) {
         document.querySelector('.popup__image').src = event.target.style.backgroundImage.slice(5, event.target.style.backgroundImage.length-2);
         this.popup.open();
     }

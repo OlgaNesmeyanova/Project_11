@@ -13,7 +13,15 @@
 * Webpack
 
 ## Setup
-Click the link https://olganesmeyanova.github.io/Project_11.github.io/
+Click the link https://olganesmeyanova.github.io/Project_11/
+
+OR
+
+Clone a repository
+git clone https://github.com/OlgaNesmeyanova/Project_11.git
+
+Type npm command
+npm run build
 
 ## Status
 Project is: in progress

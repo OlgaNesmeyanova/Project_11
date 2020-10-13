@@ -1,3 +1,12 @@
+import Api from './Api';
+import Card from './Card';
+import CardList from './CardList';
+import FormValidator from './FormValidator';
+import Popup from './Popup';
+import UserInfo from './UserInfo';
+
+import '../pages/index.css';
+
 (function () {
 const placesList = document.querySelector('.places-list');
 
@@ -19,8 +28,9 @@ const closeLargePictureButton = largePictureElement.querySelector('.popup__close
 
 const profileValidator = new FormValidator (profileForm);
 const newPlaceValidator = new FormValidator (newPlaceForm);
+const url = NODE_ENV === 'development' ? 'http://nomoreparties.co/cohort12' : 'https://nomoreparties.co/cohort12';
 
-const api = new Api();
+const api = new Api(url);
 
 const userName = document.querySelector('.user-info__name');
 const job = document.querySelector('.user-info__job');
@@ -118,21 +128,4 @@ closeNewPlaceButton.addEventListener('click', function () {
 closeLargePictureButton.addEventListener ('click', () => largePicture.close());
 
 })();
-/*
- Что понравилось:
- - Выполнено задание с добавлением карточки
- - Реализованы все классы
- Можно лучше:
- - Вынести функцию
- (result) => {
-   if (!result.ok) {
-      return Promise.reject(`Ошибка: ${result.status}`);
-    } else {
-      return result.json();
-   }
- }
- в отдельный приватный метод класса api
- - Удалить закомментированный код
- Полезные материалы:
- Статья про построение async/await API на английском https://dev.to/shoupn/javascript-fetch-api-and-using-asyncawait-47mp
- */
+

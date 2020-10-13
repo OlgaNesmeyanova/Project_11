@@ -1,5 +1,5 @@
 
-class UserInfo {
+export default class UserInfo {
 
     constructor (nameContainer, aboutContainer, avatarContainer) {
         this.nameContainer = nameContainer;
